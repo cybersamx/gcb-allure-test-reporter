@@ -12,6 +12,6 @@ This project maintains a Python script that performs the following tasks:
 
 This script is designed to work in Google Cloud Build, GCP's CI/CD solution, as a step to provide better test reporting supplementing the default output from the CI/CD tool.
 
-## Credit
+## Credits
 
 This project is based on [cloudkite-io/Test-Report-Notifier](https://github.com/cloudkite-io/Test-Report-Notifier), a similar work that Cloudkite developed for Junit-Jest reporting.
