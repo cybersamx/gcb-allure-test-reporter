@@ -1,16 +1,16 @@
-# gcb-allure-test-reporter
+# Google Cloud Build Allure Test Reporter
 
-Docker image for Google Cloud Build to convert a set of Allure test result to an HTML report, upload it to GCB, and notify the event, including a link to the report, on a Slack channel.
+This is a Docker image to be used as a build step in Google Cloud Build. It converts a set of Allure test result to an HTML report, upload it to GCB, and post the event, including a link to the report, on a Slack channel.
 
 ## Overview
 
 This project maintains a Python script that performs the following tasks:
 
-1. Given an Allure test results directory, generate an HTML report.
+1. Given an Allure test result directory, generate an HTML report.
 1. Copy the HTML report to a GCS bucket.
 1. Post the URL link to the HTML on Slack.
 
-This script is designed to work in Google Cloud Build as a step to provide better test reporting, supplementing the default output from the CI/CD tool.
+This script is designed to work in Google Cloud Build as a step to provide better test reporting, supplementing the default stdout output from the CI/CD tool.
 
 ## Setup
 
