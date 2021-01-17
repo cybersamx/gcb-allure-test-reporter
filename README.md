@@ -18,30 +18,30 @@ This script is designed to work in Google Cloud Build as a step to provide bette
 
    ```bash
    # Since this is used in GCP, put it in GCR for best performance.
-   $ docker build -t gcr.io/my-project/allure-reporter
+   $ docker build -t gcr.io/my-project/allure-reporter .
    $ docker push gcr.io/my-project/allure-reporter
    ```
 
 1. Include the docker image in a GCB pipeline.
 
    ```yaml
-     - id: 'Upload test results and post to Slack'
-       name: 'gcr.io/my-project/allure-reporter'
-       env:
-         - 'RESULTS_DIR=${_RESULTS_PATH}'
-         - 'HTML_DIR=${_HTML_PATH}'
-         - 'BUCKET_NAME=${_GCS_BUCKET}'
-         - 'REPORT_NAME=${BUILD_ID}'
-         - 'GCS_BUCKET=${_GCS_BUCKET}'
-         - 'SLACK_CHANNEL=${_SLACK_CHANNEL}'
-         - 'SLACK_WEBHOOK_URL=${_SLACK_WEBHOOK_URL}'
-         - 'PROJECT_ID=${PROJECT_ID}'
-         - 'BUILD_ID=${BUILD_ID}'
-         - 'REPO_NAME=${REPO_NAME}'
-         - 'BRANCH_NAME=${BRANCH_NAME}'
-         - 'COMMIT_SHA=${COMMIT_SHA}'
+   - id: 'Upload test results and post to Slack'
+     name: 'gcr.io/my-project/allure-reporter'
+     env:
+       - 'RESULTS_DIR=${_RESULTS_PATH}'
+       - 'HTML_DIR=${_HTML_PATH}'
+       - 'BUCKET_NAME=${_GCS_BUCKET}'
+       - 'REPORT_NAME=${BUILD_ID}'
+       - 'GCS_BUCKET=${_GCS_BUCKET}'
+       - 'SLACK_CHANNEL=${_SLACK_CHANNEL}'
+       - 'SLACK_WEBHOOK_URL=${_SLACK_WEBHOOK_URL}'
+       - 'PROJECT_ID=${PROJECT_ID}'
+       - 'BUILD_ID=${BUILD_ID}'
+       - 'REPO_NAME=${REPO_NAME}'
+       - 'BRANCH_NAME=${BRANCH_NAME}'
+       - 'COMMIT_SHA=${COMMIT_SHA}'
    ```
 
 ## Credits
 
-This project is based on [cloudkite-io/Test-Report-Notifier](https://github.com/cloudkite-io/Test-Report-Notifier), a similar work that Cloudkite developed for Junit-Jest reporting.
+This project was forked from [cloudkite-io/Test-Report-Notifier](https://github.com/cloudkite-io/Test-Report-Notifier), a similar image that Cloudkite developed for Junit-Jest reporting.
